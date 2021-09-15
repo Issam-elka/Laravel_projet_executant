@@ -21,10 +21,18 @@ class AvatarSeeder extends Seeder
                 
             ],
             [
-                'nom' => 'femme',
-                'src' => 'femme.jpg',
+                'nom' => 'anonyme',
+                'src' => 'dKMeZaCoW7v5YKnStB34FIV8vX6GrLFkWMqqSXXx.jpg',
                 
-            ]
+            ],
+            [
+                'nom' => 'Dev',
+                'src' => 'dev.jpg',
+            ],
+            [
+                'nom' => 'RRHH',
+                'src' => 'femme2.jpg',
+            ],
         ]);
     }
 }

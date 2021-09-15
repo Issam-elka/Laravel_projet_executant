@@ -37,8 +37,8 @@
                 <section class="pt-8 px-4">
                     <div class="flex flex-wrap -mx-4">
                         @foreach ($images as $image)
-                        <div class="md:w-1/3 px-4 mb-8 "><img class="rounded shadow-md"
-                            src="{{asset('storage/img/' . $image->src)}}" width="300px" >
+                        <div class="md:w-1/3 px-4 mb-8 border-blue-200 px-4 py-6 rounded-lg "><img class="rounded shadow-md"
+                            src="{{asset('storage/img/' . $image->src)}}"  >
                         </div>
                         @endforeach
                     </div>

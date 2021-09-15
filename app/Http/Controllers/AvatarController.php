@@ -40,6 +40,7 @@ class AvatarController extends Controller
         request()->validate([
             'nom' => ['required', 'min:3', 'max:35'],
         ]);
+        
             $photo = new Avatar();
             $photo->nom = $request->nom;
             $photo->src = $request->file("src")->hashName();

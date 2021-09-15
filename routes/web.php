@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\UtilisateurController;
 use App\Models\Avatar;
 use App\Models\Categorie;
 use App\Models\Image;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +42,13 @@ Route::get('/images', function () {
     $categories = Categorie::all();
     return view('pages.images', compact('images', 'categories'));
 });
+Route::get('/categories', function () {
+    $categories = Categorie::all();
+    return view('pages.categories', compact('categories'));
+});
+
+
+
 Route::get('/galerie', function () {
     $images = Image::all();
     $categories = Categorie::all();
@@ -47,12 +58,21 @@ Route::get('/galerie', function () {
 
 Route::resource('avatar', AvatarController::class);
 Route::resource('image', ImageController::class);
+Route::resource('categorie', CategorieController::class);
+Route::get('/categorie/{id}/edit', [CategorieController::class, 'edit']);
+Route::put('/categorie/{id}/update', [CategorieController::class, 'update']);
+
+Route::get('/image/{id}/download', [ImageController::class, 'download']);
+Route::get('/utilisateur/{id}/edit', [UtilisateurController::class, 'edit']);
+Route::put('/utilisateur/{id}/update', [UtilisateurController::class, 'update']);
+
 
 
 Route::get('/utilisateurs', function () {
-    $users = User::all();
+    $users = User::paginate(5);
     $avatars = Avatar::all();
-    return view('pages.utilisateurs', compact('users', 'avatars'));
+    $roles = Role::all();
+    return view('pages.utilisateurs', compact('users', 'avatars', 'roles'));
 });
 
 

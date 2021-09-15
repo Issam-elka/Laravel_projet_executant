@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Avatar;
+use App\Models\Role;
+use App\Models\User;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 
@@ -55,9 +58,12 @@ class UtilisateurController extends Controller
      * @param  \App\Models\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function edit(Utilisateur $utilisateur)
+    public function edit($id)
     {
-        //
+        $edit = User::find($id);
+        $avatars = Avatar::all();
+        $roles = Role::all();
+        return view('pages.edit.utilisateur', compact('edit','avatars', "roles"));
     }
 
     /**
@@ -67,9 +73,16 @@ class UtilisateurController extends Controller
      * @param  \App\Models\Utilisateur  $utilisateur
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Utilisateur $utilisateur)
+    public function update(Request $request, $id)
     {
-        //
+        $update = User::find($id);
+        $update->name = $request->name;
+        $update->prenom = $request->prenom;
+        $update->age = $request->age;
+        $update->avatar_id = $request->avatar_id;
+        $update->email = $request->email;
+        $update->push();
+        return redirect('/utilisateurs');
     }
 
     /**

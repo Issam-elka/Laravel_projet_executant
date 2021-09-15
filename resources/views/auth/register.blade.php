@@ -33,10 +33,14 @@
             </div>
             <label class="block mt-4">
                 <x-label for="avatar_id" :value="__('Avatar')" />
-                <select class="border rounded-md border-gray-300 mt-1 block w-full " name="avatar_id" :value="old('avatar_id')"  required autofocus>
+                <select class="border rounded-md border-gray-300 mt-1 block w-full " name="avatar_id"
+                    :value="old('avatar_id')" required autofocus>
                     <option>Select an avatar</option>
                     @foreach ($avatars as $avatar)
-                    <option value="{{$avatar->id}}">{{$avatar->nom}}</option>
+                        <div class="flex">
+                            <img src="{{ asset('storage/img/' . $avatar->src) }}" alt="">
+                            <option value="{{ $avatar->id }}"> {{ $avatar->nom }}</option>
+                        </div>
                     @endforeach
                 </select>
             </label>
@@ -74,5 +78,6 @@
                 </x-button>
             </div>
         </form>
+        
     </x-auth-card>
 </x-guest-layout>

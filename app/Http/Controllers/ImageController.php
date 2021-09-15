@@ -18,7 +18,7 @@ class ImageController extends Controller
     {
         $images = Image::all();
         $categories = Categorie::all();
-        
+
         return view('pages.images', compact('images', 'categories'));
     }
 
@@ -96,5 +96,11 @@ class ImageController extends Controller
     public function destroy(Image $image)
     {
         //
+    }
+    public function download($id){
+        $download = Image::find($id);
+        // return Storage::download('/public/assets/img/portfolio/'.$download->img_portfolio);
+        $path=public_path('/storage/img/'.$download->src);
+        return response()->download($path);
     }
 }

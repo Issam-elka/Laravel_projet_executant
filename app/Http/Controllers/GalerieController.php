@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categorie;
+use App\Models\Galerie;
 use Illuminate\Http\Request;
 
-class CategorieController extends Controller
+class GalerieController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,23 +35,16 @@ class CategorieController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate([
-            'nom' => ['required', 'min:2', 'max:35'],
-        ]);
-        
-            $categorie = new Categorie();
-            $categorie->nom = $request->nom;
-            $categorie->save();
-            return redirect('/categories')->with('success', "IT'S REGISTERED!");
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Categorie  $categorie
+     * @param  \App\Models\Galerie  $galerie
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorie $categorie)
+    public function show(Galerie $galerie)
     {
         //
     }
@@ -59,40 +52,34 @@ class CategorieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Categorie  $categorie
+     * @param  \App\Models\Galerie  $galerie
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Galerie $galerie)
     {
-        $edit = Categorie::find($id);
-        return view('pages.edit.categorie', compact('edit'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Categorie  $categorie
+     * @param  \App\Models\Galerie  $galerie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Galerie $galerie)
     {
-        $update = Categorie::find($id);
-        $update->nom = $request->nom;
-        $update->push();
-        return redirect('/categories');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Categorie  $categorie
+     * @param  \App\Models\Galerie  $galerie
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy(Galerie $galerie)
     {
-        $destroy = Categorie::find($id);
-        $destroy->delete();
-        return redirect('/categories')->with('warning', "IT'S DELETED!");
     }
+    
 }

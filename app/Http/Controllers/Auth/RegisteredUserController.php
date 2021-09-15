@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
+        
         $user = User::create([
             'name' => $request->name,
             'prenom' => $request->prenom,
@@ -60,12 +60,7 @@ class RegisteredUserController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function edit($id)
-    {
-        $edit = User::find($id);
-        $avatars = Avatar::all();
-        return view('pages.joueurs.editJoueur', compact('edit','avatars'));
-    }
+    
 
     public function update(Request $request, $id)
     {
