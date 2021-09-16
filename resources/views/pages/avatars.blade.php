@@ -63,7 +63,7 @@
             </section>
         </section>
     </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script>
         gsap.from(".avatar", {
             duration: 0.8,
@@ -72,5 +72,5 @@
             ease: "slow(0.70.7,0.70.7,false)",
         });
 
-    </script>
+    </script> --}}
 </x-app-layout>
