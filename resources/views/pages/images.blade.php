@@ -25,8 +25,10 @@
 
             <div class="w-full ml-30 gap-y-5 gap-x-2 text-center mt-4"">
                 <button id="buttonmodal" type="submit"
-                class="px-4 py-2 font-medium text-white transition-colors duration-200 transform bg-gray-600 rounded-md dark:bg-gray-800 hover:bg-gray-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-500 dark:focus:bg-gray-700">
-                Ajouter une image
+                class="px-4 py-2 font-medium text-white transition-colors duration-200 transform bg-gray-600 rounded-md bg-blue-300 hover:bg-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
                 </button>
                 @include('partials.image.modalCreate')
             </div>
@@ -37,7 +39,7 @@
                 <section class="pt-8 px-4">
                     <div class="flex flex-wrap -mx-4">
                         @foreach ($images as $image)
-                        <div class="md:w-1/3 px-4 mb-8 border-blue-200 px-4 py-6 rounded-lg "><img class="rounded shadow-md"
+                        <div class="md:w-1/3 px-4 mb-8 border-blue-200 px-4 py-6 rounded-lg images "><img class="rounded shadow-md"
                             src="{{asset('storage/img/' . $image->src)}}"  >
                         </div>
                         @endforeach
@@ -49,4 +51,13 @@
 
         </section>
     </section>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        gsap.from(".images", {
+            duration: 1.5,
+            y: -500,
+            ease: "slow(0.70.7,0.70.7,false)",
+        });
+
+    </script> --}}
 </x-app-layout>

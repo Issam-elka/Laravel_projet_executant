@@ -16,18 +16,18 @@ class AvatarSeeder extends Seeder
     {
         DB::table('avatars')->insert([
             [
-                'nom' => 'homme',
+                'nom' => 'Homme',
                 'src' => 'homme.jpg',
                 
             ],
             [
-                'nom' => 'anonyme',
-                'src' => 'dKMeZaCoW7v5YKnStB34FIV8vX6GrLFkWMqqSXXx.jpg',
+                'nom' => 'Anonyme',
+                'src' => 'anonyme.jpg',
                 
             ],
             [
-                'nom' => 'Dev',
-                'src' => 'dev.jpg',
+                'nom' => 'Femme',
+                'src' => 'femme.jpg',
             ],
             [
                 'nom' => 'RRHH',

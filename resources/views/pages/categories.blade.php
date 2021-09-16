@@ -24,24 +24,26 @@
             @include('partials.flash.flash')
             <div class="w-full ml-30 gap-y-5 gap-x-2 pr-36 mt-4 text-right">
                 <button" id="buttonmodal" type="submit"
-                class="px-4  py-2 font-medium text-white cursor-pointer transition-colors duration-200 transform bg-gray-600 rounded-md dark:bg-gray-800 hover:bg-gray-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-500 dark:focus:bg-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
-                </svg>
-                </button>
+                    class="px-4 cat py-2 font-medium text-white cursor-pointer transition-colors duration-200 transform bg-gray-600 rounded-md dark:bg-gray-800 hover:bg-gray-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-500 dark:focus:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+                    </svg>
+                    </button>
             </div>
             @include('partials.categorie.modalCreate')
             <link
                 href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
                 rel="stylesheet">
-                <h2 class="text-xl font-medium text-gray-800 text-center capitalize dark:text-white md:text-2xl">Our
-                    Categories</h2>
+            <h2 class="text-xl font-medium text-gray-800 text-center cat capitalize dark:text-white md:text-2xl">Our
+                Categories</h2>
             <div class="flex mt-6 justify-center min-h-screen w-80 m-auto bg-white-900">
-                
+
                 <div class="col-span-12">
                     <div class="overflow-auto lg:overflow-visible ">
                         <table class="table text-gray-400 border-separate space-y-6 text-sm">
-                            <thead class="bg-gray-800 text-gray-500">
+                            <thead class="bg-gray-800 text-gray-500 cat">
                                 <tr>
                                     <th class="p-3">#</th>
                                     <th class="p-3"></th>
@@ -52,7 +54,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($categories as $categorie)
-                                    <tr class="bg-gray-800">
+                                    <tr class="bg-gray-800 cat">
 
                                         <td class="p-3">
                                             {{ $categorie->id }}
@@ -62,17 +64,19 @@
                                             {{ $categorie->nom }}
                                         </td>
                                         <td class="p-3 ">
-                                            <a href="/categorie/{{$categorie->id}}/edit" class="text-gray-400 hover:text-blue-300  mx-2">
+                                            <a href="/categorie/{{ $categorie->id }}/edit"
+                                                class="text-gray-400 hover:text-blue-300  mx-2">
                                                 <i class="material-icons-outlined text-base text text-center">edit</i>
                                             </a>
                                         </td>
                                         <td class="p-3 text-center ">
-                                                <form action="/categorie/{{ $categorie->id }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="material-icons-round text-center  text-red-400 hover:text-red-200">delete_outline</button type="submit">
-                                                </form>
-                                        
+                                            <form action="/categorie/{{ $categorie->id }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit"
+                                                    class="material-icons-round text-center  text-red-400 hover:text-red-200">delete_outline</button
+                                                    type="submit">
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -108,4 +112,14 @@
 
         </section>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        gsap.from(".cat", {
+            duration: 0.8,
+            scale: 0.5,
+            y: -500,
+            ease: "slow(0.70.7,0.70.7,false)",
+        });
+    </script>
 </x-app-layout>

@@ -34,18 +34,20 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/avatars', function () {
-    $avatars = Avatar::all();
+    // $avatars = Avatar::all();
+    $avatars = Avatar::all()->whereNotIn('id',2);
     return view('pages.avatars', compact('avatars'));
-});
+})->middleware('auth', 'verif');
+
 Route::get('/images', function () {
     $images = Image::all();
     $categories = Categorie::all();
     return view('pages.images', compact('images', 'categories'));
-});
+})->middleware('auth', 'verif');
 Route::get('/categories', function () {
     $categories = Categorie::all();
     return view('pages.categories', compact('categories'));
-});
+})->middleware('auth', 'verif');
 
 
 
@@ -73,7 +75,7 @@ Route::get('/utilisateurs', function () {
     $avatars = Avatar::all();
     $roles = Role::all();
     return view('pages.utilisateurs', compact('users', 'avatars', 'roles'));
-});
+})->middleware('auth', 'verif');
 
 
 

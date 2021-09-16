@@ -21,14 +21,14 @@
         </section>
         <section class="w-full h-full bg-white">
             <section class="container p-6 mx-auto bg-white dark:bg-gray-800">
-                <h2 class="text-xl font-medium text-gray-800 text-center capitalize dark:text-white md:text-2xl">Our
+                <h2 class="text-xl font-medium users text-gray-800 text-center capitalize dark:text-white md:text-2xl">Our
                     users</h2>
 
                 <div class="flex items-center justify-center">
                     <div class="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         @foreach ($users as $user)
 
-                            <div class="max-w-sm mx-auto overflow-hidden bg-white rounded-lg ring-4 ring-indigo-300 shadow-2xl dark:bg-gray-800">
+                            <div class="max-w-sm mx-auto overflow-hidden users bg-white rounded-lg ring-4 ring-indigo-300 shadow-2xl dark:bg-gray-800">
                                 <img class="object-cover object-center w-full h-56"
                                     src="{{ asset('storage/img/' . $user->avatars->src) }}" alt="avatar">
 
@@ -72,7 +72,7 @@
             </section>
             <section class="w-1/3 m-auto mt-16">
 
-                <div class="flex ">
+                <div class="flex users ">
                     <a href="#" class="flex items-center px-4 py-2 mx-1 text-white bg-blue-300 hover-blue-500 rounded-md cursor-not-allowed ">
                         previous
                     </a>
@@ -96,4 +96,14 @@
             </section>
         </section>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        gsap.from(".users", {
+            duration: 0.8,
+            scale: 0.5,
+            y: -500,
+            ease: "slow(0.70.7,0.70.7,false)",
+        });
+
+    </script>
 </x-app-layout>

@@ -9,11 +9,17 @@ use Illuminate\Support\Facades\Storage;
 
 class AvatarController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verif');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         //
@@ -89,10 +95,15 @@ class AvatarController extends Controller
      * @param  \App\Models\Avatar  $avatar
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Avatar $avatar)
     {
-        $destroy = Avatar::find($id);
-        $destroy->delete();
+        Storage::delete("public/img/".$avatar->src);
+        $users=User::all()->where('avatar_id',$avatar->id);
+        foreach ($users as $user){
+            $user->avatar_id=2;
+            $user->save();
+        };
+        $avatar->delete();
         return redirect('/avatars')->with('warning', "IT'S DELETED!");
     }
 

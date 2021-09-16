@@ -15,6 +15,12 @@ class UtilisateurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('verif');
+    }
     public function index()
     {
         //
@@ -63,7 +69,7 @@ class UtilisateurController extends Controller
         $edit = User::find($id);
         $avatars = Avatar::all();
         $roles = Role::all();
-        return view('pages.edit.utilisateur', compact('edit','avatars', "roles"));
+        return view('pages.edit.utilisateur', compact('edit', 'avatars', "roles"));
     }
 
     /**
