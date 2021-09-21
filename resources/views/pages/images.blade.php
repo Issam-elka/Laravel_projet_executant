@@ -23,12 +23,12 @@
 
             @include('partials.flash.flash')
 
-            <div class="w-full ml-30 gap-y-5 gap-x-2 text-center mt-4"">
+            <div class="w-full ml-30 gap-y-5 gap-x-2 text-center pr-36 mt-6 text-right"">
                 <button id="buttonmodal" type="submit"
-                class="px-4 py-2 font-medium text-white transition-colors duration-200 transform bg-gray-600 rounded-md bg-blue-300 hover:bg-blue-500">
+                class="px-4 py-4 font-medium text-white transition-colors duration-200 transform bg-gray-300 rounded-md hover:bg-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                </svg>
                 </button>
                 @include('partials.image.modalCreate')
             </div>
@@ -51,13 +51,12 @@
 
         </section>
     </section>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script>
-        gsap.from(".images", {
-            duration: 1.5,
-            y: -500,
+        gsap.from(".avatar", {
+            duration: 0.9,
+            y:500,
             ease: "slow(0.70.7,0.70.7,false)",
         });
-
-    </script> --}}
+    </script>
 </x-app-layout>

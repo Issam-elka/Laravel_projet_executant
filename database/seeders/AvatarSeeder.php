@@ -31,7 +31,7 @@ class AvatarSeeder extends Seeder
             ],
             [
                 'nom' => 'RRHH',
-                'src' => 'femme2.jpg',
+                'src' => 'femme2.png',
             ],
         ]);
     }

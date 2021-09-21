@@ -1,5 +1,5 @@
 <div id="modal"
-    class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-blue-200 bg-opacity-50 transform scale-0 transition-transform duration-300">
+    class="fixed z-20 top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-300 bg-opacity-60 transform scale-0 transition-transform duration-300">
     <!-- Modal content -->
     <div class="bg-white w-1/3 h-50 p-12"> 
         <!--Close modal button-->

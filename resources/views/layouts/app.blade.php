@@ -18,7 +18,7 @@
     </head>
     <body class="font-sans antialiased bg-gradient-to-r from-green-400 to-blue-500">
         <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
             {{-- <header class="bg-white shadow">

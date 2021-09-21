@@ -16,8 +16,8 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body class="bg-gradient-to-r from-green-400 to-blue-500">
-        <div class="font-sans text-gray-900 antialiased">
+    <body class="bg-gradient-to-r from-gray-300 to-blue-800">
+        <div class="font-sans text-gray-900 antialiased ">
             {{ $slot }}
         </div>
     </body>

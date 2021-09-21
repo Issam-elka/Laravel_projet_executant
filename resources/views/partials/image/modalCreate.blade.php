@@ -1,5 +1,5 @@
 <div id="modal"
-    class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-blue-200 bg-opacity-50 transform scale-0 transition-transform duration-300">
+    class="fixed z-20 top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-300 bg-opacity-60 transform scale-0 transition-transform duration-300">
     <!-- Modal content -->
     <div class="bg-white w-1/3 h-50 p-12"> 
         <!--Close modal button-->
@@ -12,7 +12,7 @@
         <!-- Test content -->
         <form action="/image" style="font-size: 18px" class="form-control pb-10 m-auto" enctype="multipart/form-data" method="POST">
             @csrf
-            <div class="block w-full h-full mt-4 bg-grey-lighter">
+            <div class="block w-full h-full mt-4 bg-grey-lighter text-left">
                 <label class="text-gray-700 dark:text-gray-200" for="username">Image</label>
                 <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue  cursor-pointer hover:bg-blue-200 hover:text-white">
                     <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -22,8 +22,8 @@
                     <input type='file' value="{{old('src')}}" name="src" class="hidden" />
                 </label>
             </div>
-            <label class="block mt-4">
-                <x-label for="categorie_id" :value="__('Categorie')" />
+            <label class="block mt-4 text-left">
+                <label class="text-gray-700 dark:text-gray-200" for="username">Avatar</label>
                 <select class="border rounded-md border-gray-300 mt-1 block w-full " name="categorie_id" :value="old('categorie_id')"  required autofocus>
                     <option>Selectionner une catégorie</option>
                     @foreach ($categories as $categorie)
@@ -32,7 +32,7 @@
                 </select>
             </label>
             <div class="flex justify-center mt-6 ">
-                <button type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                <button type="submit" class="px-6 py-3 leading-5 text-white transition-colors duration-200 transform bg-blue-300 rounded-md hover:bg-blue-500 focus:outline-none focus:bg-gray-600">Save</button>
             </div>
         </form>
     </div>

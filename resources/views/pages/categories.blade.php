@@ -24,7 +24,7 @@
             @include('partials.flash.flash')
             <div class="w-full ml-30 gap-y-5 gap-x-2 pr-36 mt-4 text-right">
                 <button" id="buttonmodal" type="submit"
-                    class="px-4 cat py-2 font-medium text-white cursor-pointer transition-colors duration-200 transform bg-gray-600 rounded-md dark:bg-gray-800 hover:bg-gray-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-500 dark:focus:bg-gray-700">
+                    class="px-4 cat py-2 font-medium text-white cursor-pointer transition-colors duration-200 transform bg-gray-300 rounded-md dark:bg-gray-800 hover:bg-gray-500 dark:hover:bg-gray-700 focus:outline-none focus:bg-gray-500 dark:focus:bg-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -43,7 +43,7 @@
                 <div class="col-span-12">
                     <div class="overflow-auto lg:overflow-visible ">
                         <table class="table text-gray-400 border-separate space-y-6 text-sm">
-                            <thead class="bg-gray-800 text-gray-500 cat">
+                            <thead class="bg-gray-300 text-gray-600 cat">
                                 <tr>
                                     <th class="p-3">#</th>
                                     <th class="p-3"></th>
@@ -54,7 +54,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($categories as $categorie)
-                                    <tr class="bg-gray-800 cat">
+                                    <tr class="bg-gray-300 text-gray-600">
 
                                         <td class="p-3">
                                             {{ $categorie->id }}
@@ -115,10 +115,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script>
-        gsap.from(".cat", {
-            duration: 0.8,
-            scale: 0.5,
-            y: -500,
+        gsap.from(".avatar", {
+            duration: 0.9,
+            y:500,
             ease: "slow(0.70.7,0.70.7,false)",
         });
     </script>

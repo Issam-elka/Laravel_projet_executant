@@ -19,15 +19,21 @@
         <section>
             @include('partials.sidebar')
         </section>
-        <section class="w-full h-full bg-white ">
+        <section class="w-full h-full bg-white">
 
             @include('partials.flash.flash')
-            <section class="w-1/2 m-auto mt-24 ring-4 ring-indigo-300 p-5 rounded-md shadow-2xl">
-
-                @include('partials.edit.editCategorie')
-            </section>
-
+            @include('partials.card.blog')
 
         </section>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        gsap.from(".images", {
+            duration: 1.5,
+            y: -500,
+            ease: "slow(0.70.7,0.70.7,false)",
+        });
+
+    </script>
 </x-app-layout>
+{{-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia at consequatur exercitationem, excepturi placeat ex corporis possimus reiciendis deleniti officia! --}}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AvatarController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\GalerieController;
 use App\Http\Controllers\ImageController;
@@ -49,6 +50,10 @@ Route::get('/categories', function () {
     return view('pages.categories', compact('categories'));
 })->middleware('auth', 'verif');
 
+Route::get('/blog', function () {
+    return view('pages.blog');
+})->middleware('auth', 'verif');
+
 
 
 Route::get('/galerie', function () {
@@ -65,7 +70,7 @@ Route::get('/categorie/{id}/edit', [CategorieController::class, 'edit']);
 Route::put('/categorie/{id}/update', [CategorieController::class, 'update']);
 
 Route::get('/image/{id}/download', [ImageController::class, 'download']);
-Route::get('/utilisateur/{id}/edit', [UtilisateurController::class, 'edit']);
+Route::get('/utilisateur/{id}/edit', [UtilisateurController::class, 'edit'])->name('utilisateur.edit');
 Route::put('/utilisateur/{id}/update', [UtilisateurController::class, 'update']);
 
 
@@ -77,6 +82,8 @@ Route::get('/utilisateurs', function () {
     return view('pages.utilisateurs', compact('users', 'avatars', 'roles'));
 })->middleware('auth', 'verif');
 
+Route::resource('utilisateur', UtilisateurController::class);
+Route::resource('blog', BlogController::class)->middleware('auth', 'verif');
 
 
 require __DIR__.'/auth.php';

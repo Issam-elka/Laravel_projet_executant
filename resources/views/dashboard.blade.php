@@ -21,6 +21,8 @@
 
         </section>
         <section class="w-1/2 m-auto">
+            <h2 class="text-2xl font-medium text-gray-800 text-center capitalize dark:text-white md:text-2xl">Hello
+                {{Auth::user()-> name}} {{Auth::user()-> prenom}}</h2>
             <section class="bg-gray-100 dark:bg-gray-900 dashboard lg:py-12 lg:flex lg:justify-center">
                 <div class="bg-white dark:bg-gray-800  lg:mx-8 lg:flex lg:max-w-5xl lg:shadow-lg lg:rounded-lg">
                     <div class="lg:w-1/2">
@@ -35,8 +37,8 @@
                         <h2 class="text-2xl font-bold text-gray-800 dark:text-white md:text-xl">Email : {{Auth::user()->email}}</h2>
                         <h2 class="text-2xl font-bold text-gray-800 dark:text-white md:text-xl">Role : {{Auth::user()->roles->role}}</h2>
                         <div class="mt-8">
-                            <a href="/utilisateur/{{Auth::user()->id}}/edit"
-                                class="px-5 py-3 font-semibold text-gray-100 transition-colors duration-200 transform bg-blue-300 rounded-md hover:bg-blue-500"> Modifier </a>
+                            <a href="{{route('utilisateur.edit', Auth::user()->id)}}"
+                                class="px-5 py-3 font-semibold text-gray-100 transition-colors duration-200 transform bg-gray-300 rounded-md hover:bg-gray-500"> Modifier </a>
                         </div>
                     </div>
                 </div>

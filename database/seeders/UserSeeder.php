@@ -34,6 +34,15 @@ class UserSeeder extends Seeder
             'password' => Hash::make('admin'),
             'role_id' => '2'
             ],
+            [
+            'name' => 'webmaster',
+            'prenom' => 'weblaster',
+            'age' => 23,
+            'avatar_id' => 2,
+            'email' => 'web@web.com',
+            'password' => Hash::make('webmaster'),
+            'role_id' => '3'
+            ],
         ]);
     }
 }

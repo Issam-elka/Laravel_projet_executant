@@ -28,7 +28,7 @@
                     <div class="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         @foreach ($users as $user)
 
-                            <div class="max-w-sm mx-auto overflow-hidden users bg-white rounded-lg ring-4 ring-indigo-300 shadow-2xl dark:bg-gray-800">
+                            <div class="max-w-sm mx-auto overflow-hidden users bg-white rounded-lg ring-4 ring-gray-300 shadow-2xl dark:bg-gray-800">
                                 <img class="object-cover object-center w-full h-56"
                                     src="{{ asset('storage/img/' . $user->avatars->src) }}" alt="avatar">
 
@@ -50,18 +50,26 @@
 
                                         <h1 class="px-2 text-sm">{{ $user->email }}</h1>
                                     </div>
-                                    <div class="mt-6 text-center">
+                                    <div class="mt-6 text-center flex justify-center">
 
                                         <a href="/utilisateur/{{$user->id}}/edit">
                                         
-                                            <button class="btn bg-blue-300 rounded-md  p-3 text-white hover:bg-blue-500">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                            <button class="btn bg-blue-200 rounded-md  p-3 text-white hover:bg-blue-300">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-6"
                                                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                                 </svg>
                                             </button>
                                         </a>
+                                        <form action="/utilisateur/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 mx-2 rounded "
+                                                type="submit"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                </svg></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -73,23 +81,23 @@
             <section class="w-1/3 m-auto mt-16">
 
                 <div class="flex users ">
-                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white bg-blue-300 hover-blue-500 rounded-md cursor-not-allowed ">
+                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white bg-gray-300 hover:bg-gray-500 rounded-md cursor-not-allowed ">
                         previous
                     </a>
                 
-                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white transition-colors duration-200 transform bg-blue-300 hover:bg-blue-500 rounded-md ">
+                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white transition-colors duration-200 transform bg-gray-300 hover:bg-gray-500 rounded-md ">
                         1
                     </a>
                 
-                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white hover:bg-blue-500 transition-colors duration-200 transform bg-blue-300 rounded-md ">
+                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white hover:bg-gray-500 transition-colors duration-200 transform bg-gray-300 rounded-md ">
                         2
                     </a>
                 
-                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white hover:bg-blue-500 transition-colors duration-200 transform bg-blue-300 hover:bg-blue-500 rounded-md ">
+                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white hover:bg-gray-500 transition-colors duration-200 transform bg-gray-300 hover:bg-gray-500 rounded-md ">
                         3
                     </a>
                 
-                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white transition-colors duration-200 transform bg-blue-300 hover:bg-blue-500 rounded-md ">
+                    <a href="#" class="flex items-center px-4 py-2 mx-1 text-white transition-colors duration-200 transform bg-gray-300 hover:bg-gray-500 rounded-md ">
                         Next
                     </a>
                 </div>

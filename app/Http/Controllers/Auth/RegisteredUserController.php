@@ -73,5 +73,6 @@ class RegisteredUserController extends Controller
         $update->push();
         return redirect('/utilisateurs');
     }
+    
 
 }

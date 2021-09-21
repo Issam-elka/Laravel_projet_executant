@@ -28,22 +28,20 @@
                 <section class="pt-8 px-4">
                     <div class="flex flex-wrap -mx-4 m-2 ">
                         @foreach ($images as $image)
-                            <div
-                                class="md:w-1/4 px-4 mb-8 galerie ring-2 ring-blue-300 p-4 mx-10 justify-center  px-4 py-6 rounded-lg transform transition duration-500 hover:scale-110">
-                                <img class="rounded shadow-md " src="{{ asset('storage/img/' . $image->src) }}" alt=""
-                                    width="400px">
-                                @if (Auth::user()->role_id == 1)
-                                    <button class="btn bg-blue-300 download rounded-md p-3 text-white mt-2"><a
-                                            href="/image/{{ $image->id }}/download"><svg
-                                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                            </svg></a>
-                                    </button>
-                                @else
-
-                                @endif
+                        <div
+                        class="md:w-1/4 px-4 mb-8 galerie ring-2 ring-gray-300 p-4 mx-10 justify-center  px-4 py-6 rounded-lg transform transition duration-500 hover:scale-110">
+                        <img class="rounded shadow-md " src="{{ asset('storage/img/' . $image->src) }}" alt=""
+                        width="400px">
+                        <h4 class="mt-4 text-center">Catégorie: {{$image->Categorie->nom}}</h4>
+                                        <a
+                                            href="/image/{{ $image->id }}/download">
+                                            <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center justify-center text-center mt-4 mx-16">
+                                            <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
+                                            <span>Download</span>
+                                            </button>
+                                        </a>
+                                    {{-- </button> --}}
+                                
 
                             </div>
                         @endforeach

@@ -46,13 +46,18 @@ class AvatarController extends Controller
         request()->validate([
             'nom' => ['required', 'min:3', 'max:35'],
         ]);
-        
+        if (Avatar::all()->count()===6) {
+            return redirect()->back()->with('warning', "LE CLAN D'AVATAR EST COMPLET");
+        } else {
             $photo = new Avatar();
             $photo->nom = $request->nom;
             $photo->src = $request->file("src")->hashName();
             Storage::put("public/img", $request->file("src"));
             $photo->save();
             return redirect('/avatars')->with('success', "IT'S REGISTERED!");
+        
+        }
+        
     }
 
     /**

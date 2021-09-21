@@ -1,5 +1,5 @@
 <div id="modal"
-    class="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-blue-200 bg-opacity-50 transform scale-0 transition-transform duration-300">
+    class="fixed z-20 top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-300 bg-opacity-60 transform scale-0 transition-transform duration-300">
     <!-- Modal content -->
     <div class="bg-white w-1/3 h-50 p-12"> 
         <!--Close modal button-->
@@ -12,13 +12,13 @@
         <!-- Test content -->
         <form action="/avatar" style="font-size: 18px" class="form-control pb-10 m-auto" enctype="multipart/form-data" method="POST">
             @csrf
-            <div class="block w-full h-full">
-                <label class="text-gray-700 dark:text-gray-200 justify-start" for="username">Username</label>
+            <div class="block w-full h-full text-left">
+                <label class="text-gray-700 dark:text-gray-200  text-center" for="username">Username</label>
                 <input id="username" type="text" name="nom" value="{{old('nom')}}" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
-            <div class="block w-full h-full mt-4 bg-grey-lighter">
-                <label class="text-gray-700 dark:text-gray-200" for="username">Avatar</label>
-                <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue  cursor-pointer hover:bg-blue-200 hover:text-white">
+            <div class="block w-full h-full mt-4 bg-grey-lighter text-left">
+                <label class="text-gray-700 dark:text-gray-200 text-center" for="username">Avatar</label>
+                <label class="w-full flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-200 hover:text-white">
                     <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                     </svg>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="flex justify-center mt-6 ">
-                <button type="submit" class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                <button type="submit" class="px-6 py-4 leading-5 text-white transition-colors duration-200 transform bg-blue-300 hover:bg-blue-500 rounded-md ">Save</button>
             </div>
         </form>
     </div>
@@ -39,6 +39,8 @@
     const closebutton = document.getElementById('closebutton')
     const modal = document.getElementById('modal')
 
-    button.addEventListener('click',()=>modal.classList.add('scale-100'))
+    button.addEventListener('click',()=>
+        modal.classList.add('scale-100')
+        )
     closebutton.addEventListener('click',()=>modal.classList.remove('scale-100'))
 </script>

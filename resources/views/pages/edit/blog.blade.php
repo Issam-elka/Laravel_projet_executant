@@ -4,6 +4,7 @@
             {{ __('Avatars') }}
         </h2>
     </x-slot>
+
     <section class="flex  bg-white">
         <section>
             @include('partials.sidebar')
@@ -11,12 +12,10 @@
         <section class="w-full h-full bg-white ">
 
             @include('partials.flash.flash')
-            <section class="w-1/2 m-auto mt-10 ring-4 ring-gray-300 p-5 rounded-md images shadow-2xl">
+            <section class="w-1/2 m-auto mt-10 ring-4 ring-gray-300 p-5 rounded-md shadow-2xl images">
 
-                @include('partials.edit.editUser')
+                @include('partials.edit.editBlog')
             </section>
-
-
         </section>
     </section>
 </x-app-layout>
